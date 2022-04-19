@@ -70,7 +70,7 @@ def printNumericalFieldNames(inputFc, workspace):
 ###################################################################### 
 def exportFeatureClassesByShapeType(input_geodatabase, shapeType, output_geodatabase):
     if shapeType not in ("Polygon", "Polyline", "Point", "Multipoint", "MultiPatch"):
-        print("shapeType must be Polygon, Polyline, Point, Multipoint, or MultiPatch [with quotes]")
+        print("shapeType must be Polygon, Polyline, Point, Multipoint, or MultiPatch [with quotes]") # only the accepted shape types should be given as arguments
     try:
         arcpy.env.workspace = input_geodatabase
         featureclasses = arcpy.ListFeatureClasses()
@@ -103,15 +103,13 @@ def exportAttributeJoin(inputFc, outputFc, idFieldInputFc, inputTable, idFieldTa
         arcpy.env.workspace = workspace
         val_res = arcpy.ValidateJoin_management(inputFc, idFieldInputFc, inputTable, idFieldTable)
         matched = int(val_res[0]) 
-        row_count = int(val_res[1])
+        row_count = int(val_res[1]) # information about this join
 
-        print(arcpy.GetMessages())
+        print(arcpy.GetMessages()) # prints ArcGIS output about the join
 
         if matched >= 1:
-            fc_joined_table = arcpy.AddJoin_management(inputFc, idFieldInputFc, inputTable, idFieldTable)
-
-            # Copy the joined layer to a new permanent feature class
-            arcpy.CopyFeatures_management(fc_joined_table, outputFc)
+            fc_joined_table = arcpy.AddJoin_management(inputFc, idFieldInputFc, inputTable, idFieldTable) # if join is valid, perform the join
+            arcpy.CopyFeatures_management(fc_joined_table, outputFc) # and export to a new feature class
 
         print(f"Output Features: {outputFc} had matches {matched} and created {row_count} records")
 
