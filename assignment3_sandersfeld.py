@@ -55,7 +55,7 @@ def printNumericalFieldNames(inputFc, workspace):
         arcpy.env.workspace = workspace
         fields = arcpy.ListFields(inputFc)
         for field in fields:
-            if field.type == "Integer" or field.type == "SmallInteger" or field.type == "Double" or field.type == "Single":
+            if field.type in ("Integer", "SmallInteger", "Double", "Single"):
                 print("{0} is a type of {1} with length {2}" .format(field.name, field.type, field.length))
 
     except arcpy.ExecuteError:
