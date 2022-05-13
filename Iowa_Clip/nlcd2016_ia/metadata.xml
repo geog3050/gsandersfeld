@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20211008</CreaDate><CreaTime>08355000</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.8\ArcToolbox\Toolboxes\Spatial Analyst Tools.tbx\ExtractByMask" Date="20211008" Time="083550">ExtractByMask NLCD_2016_Land_Cover_L48_20190424.img iowa_border U:\GIS-Data\Base_Data\Landcover_Datasets\NLCD\NLCD_2016\Iowa_Clip\NLCD2016_IA</Process></lineage></DataProperties></Esri></metadata>
